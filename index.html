@@ -1,0 +1,140 @@
+<!DOCTYPE>
+<html>
+
+<head>
+	<meta charset="utf-8" />
+	<title>Agriculture-Data</title>
+</head>
+
+<body>
+	<div id="content"></div>
+	<table cellpadding="0" cellspacing="0" border="0">
+
+		<tbody>
+			<tr style="background-color: #EFF3FB">
+				<td style="width: 20%; height: 23px; vertical-align: middle; padding-left: 10px;">
+					<font class="bgfont"><strong>&nbsp;
+                        孢子植物杂草
+                    </strong></font>
+
+					<a href="ShowMore.aspx?id=4&amp;type=weed">
+                                藻类植物杂草
+                            </a>
+
+					<a href="ShowMore.aspx?id=5&amp;type=weed">
+                                苔藓植物杂草
+                            </a>
+
+					<a href="ShowMore.aspx?id=6&amp;type=weed">
+                                蕨类植物杂草
+                            </a>
+
+				</td>
+				<td align="right" style="width: 10%; padding-right: 13px;">
+					<a href="More.aspx?id=1&amp;type=weed">
+						<font color="#ff6102" class="gengduo">更多&gt;&gt;</font>
+					</a>
+				</td>
+			</tr>
+
+			<tr style="background-color: #FFFFFF">
+				<td style="width: 20%; height: 23x; vertical-align: middle; padding-left: 10px;">
+					<font class="bgfont"><strong>&nbsp;
+                        双子叶种子植物杂草
+                    </strong></font>
+
+					<a href="ShowMore.aspx?id=7&amp;type=weed">
+                                白花菜科
+                            </a>
+
+					<a href="ShowMore.aspx?id=8&amp;type=weed">
+                                报春花科
+                            </a>
+
+					<a href="ShowMore.aspx?id=9&amp;type=weed">
+                                车前科
+                            </a>
+
+					<a href="ShowMore.aspx?id=10&amp;type=weed">
+                                唇行科
+                            </a>
+
+					<a href="ShowMore.aspx?id=11&amp;type=weed">
+                                酢浆草科
+                            </a>
+
+				</td>
+				<td align="right" style="width: 10%; padding-right: 13px;">
+					<a href="More.aspx?id=2&amp;type=weed">
+						<font color="#ff6102" class="gengduo">更多&gt;&gt;</font>
+					</a>
+				</td>
+			</tr>
+
+			<tr style="background-color: #EFF3FB">
+				<td style="width: 20%; height: 23px; vertical-align: middle; padding-left: 10px;">
+					<font class="bgfont"><strong>&nbsp;
+                        单子叶种子植物杂草
+                    </strong></font>
+
+					<a href="ShowMore.aspx?id=56&amp;type=weed">
+                                百合科
+                            </a>
+
+					<a href="ShowMore.aspx?id=57&amp;type=weed">
+                                茨藻科
+                            </a>
+
+					<a href="ShowMore.aspx?id=58&amp;type=weed">
+                                灯心草科
+                            </a>
+
+					<a href="ShowMore.aspx?id=59&amp;type=weed">
+                                浮萍科
+                            </a>
+
+					<a href="ShowMore.aspx?id=60&amp;type=weed">
+                                谷精草科
+                            </a>
+
+				</td>
+				<td align="right" style="width: 10%; padding-right: 13px;">
+					<a href="More.aspx?id=3&amp;type=weed">
+						<font color="#ff6102" class="gengduo">更多&gt;&gt;</font>
+					</a>
+				</td>
+			</tr>
+
+		</tbody>
+	</table>
+	<script src="./jquery.min.js"></script>
+	<script>
+    
+    var $table = $('table'),
+        $tr = $table.find('tr');
+
+    var data = [];
+
+    $tr.each(function () {
+      var $this = $(this),
+          $font = $this.find('font'),
+          txt = $font.text().trim().replace(' 更多>>', '').replace('\n', '').replace(/\s+/g, ''),
+          arr = txt.split('—'),
+          aArr = [],
+          $a = $this.find('td:first a').each(function () { aArr.push($(this).text().trim()) });
+
+      var category = {
+        v1: arr[0],
+        v2: arr[1] || arr[0],
+        children: aArr
+      }
+
+      data.push(category);
+    })
+
+    console.log(JSON.stringify(data));
+
+  </script>
+</body>
+
+</html>
